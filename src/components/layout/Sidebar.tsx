@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { useUIStore } from "@/lib/store";
 
 const navItems = [
-  { href: "/", label: "Chat", icon: MessageSquare },
+  { href: "/chat", label: "Chat", icon: MessageSquare },
   { href: "/hotels", label: "Hotels", icon: Search },
   { href: "/bookings", label: "Bookings", icon: CalendarCheck },
   { href: "/rfp", label: "RFP", icon: FileText },
@@ -46,10 +46,7 @@ export function Sidebar() {
       {/* Navigation */}
       <nav className="flex-1 space-y-1 p-2">
         {navItems.map((item) => {
-          const isActive =
-            item.href === "/"
-              ? pathname === "/"
-              : pathname.startsWith(item.href);
+          const isActive = pathname.startsWith(item.href);
 
           return (
             <Link key={item.href} href={item.href}>
